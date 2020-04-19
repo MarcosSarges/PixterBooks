@@ -1,21 +1,14 @@
 const MODULE_RESOLVER = [
   'module-resolver',
   {
-    root: ['./src'],
+    extensions: ['.js', '.ts', '.tsx', '.json'],
     alias: {
-      '@Components': './src/Components',
-      '@Navigation': './src/Navigation',
-      '@Constants': './src/Constants',
-      '@Features': './src/Features',
-      '@Services': './src/Services',
-      '@Fixtures': './src/Fixtures',
-      '@Themes': './src/Themes',
-      '@Config': './src/Config',
-      '@Sagas': './src/Sagas',
-      '@Redux': './src/Redux',
-      '@Types': './src/Types',
-      '@I18n': './src/I18n',
-      '@Lib': './src/Lib',
+      '@assets': './src/assets',
+      '@components': './src/components',
+      '@screens': './src/screens',
+      '@routes': './src/routes',
+      '@services': './src/services',
+      '@lib': './src/lib',
     },
   },
 ];
