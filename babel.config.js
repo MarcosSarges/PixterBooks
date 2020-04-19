@@ -6,9 +6,10 @@ const MODULE_RESOLVER = [
       '@assets': './src/assets',
       '@components': './src/components',
       '@screens': './src/screens',
-      '@routes': './src/routes',
+      '@router': './src/router',
       '@services': './src/services',
       '@lib': './src/lib',
+      '@ts': './src/ts',
     },
   },
 ];

@@ -1,6 +1,6 @@
 import Axios from 'axios';
 import Defines from '@services/Defines';
-import {BOOKS} from 'src/ts/types';
+import {BOOKS} from '@ts/types';
 
 const API = Axios.create({
   baseURL: Defines.API.HOST,
