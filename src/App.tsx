@@ -25,10 +25,15 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import {getBooks} from '@services/API';
 
 declare const global: {HermesInternal: null | {}};
 
 const App = () => {
+  React.useEffect(() => {
+    getBooks('a').then(console.log);
+  }, []);
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
