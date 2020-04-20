@@ -67,12 +67,12 @@ function HomeScreen({
 
   return (
     <View style={styles.rootView}>
-      <Header searchButton backButton />
+      <Header searchButton />
       <FlatList
         showsVerticalScrollIndicator={false}
         ItemSeparatorComponent={() => <View style={{height: metrics.margin}} />}
         contentContainerStyle={{marginHorizontal: metrics.margin}}
-        style={styles.margin}
+        style={styles.padding}
         refreshControl={
           <RefreshControl
             onRefresh={handleRefresh}
@@ -110,5 +110,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
 
 const styles = StyleSheet.create({
   rootView: {flex: 1},
-  margin: {marginBottom: 20},
+  padding: {paddingBottom: 20},
 });

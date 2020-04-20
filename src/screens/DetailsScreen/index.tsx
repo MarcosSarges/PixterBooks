@@ -9,6 +9,7 @@ import ButtonBuy from './components/ButtonBuy';
 import ButtonFavorite from './components/ButtonFavorite';
 import {useSelector} from 'react-redux';
 import HelperGetBookImg from '@lib/HelperGetBookImg';
+import Header from '@components/Header';
 
 export default function DetailsScreen() {
   const book = useSelector((state: {books: BOOKS}) => state.books.book);
@@ -16,6 +17,7 @@ export default function DetailsScreen() {
 
   return (
     <ScrollView style={styles.root}>
+      <Header backButton />
       <View style={styles.header}>
         <View style={styles.containerImg}>
           <BookImage uri={HelperGetBookImg(volumeInfo)} />

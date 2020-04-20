@@ -7,9 +7,11 @@ import {
   StyleSheet,
 } from 'react-native';
 import metrics from '@assets/styles/metrics';
-import {HeaderBackButton} from '@react-navigation/stack';
 import ButtonNative from '@components/ButtonNative/index.android';
 import Search from '@assets/svg/Search';
+import {useNavigation} from '@react-navigation/native';
+import ArrowLeft from '@assets/svg/ArrowLeft';
+import colors from '@assets/styles/colors';
 
 // import { Container } from './styles';
 
@@ -19,35 +21,25 @@ export default function Header(props: {
   onChangeText?(txt: string): void;
 }) {
   const [search, setSearch] = React.useState(false);
+  const {goBack} = useNavigation();
   return (
     <>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: metrics.padding,
-        }}>
-        <View style={{height: 40, width: 40}}>
-          {props.backButton ? <HeaderBackButton /> : false}
-        </View>
-
-        <Text
-          style={{
-            textAlign: 'center',
-            borderBottomColor: 'rgba(0,0,0,0.1)',
-            borderBottomWidth: 2,
-            paddingBottom: 8,
-            fontSize: 26,
-          }}>
-          Pixter Books
-        </Text>
+      <View style={styles.rootView}>
         <ButtonNative
           propsView={{
-            style: {
-              height: 40,
-              width: 40,
-            },
+            style: styles.buttonSize,
+          }}
+          propsButtons={{
+            onPress: () => goBack(),
+            background: TouchableNativeFeedback.SelectableBackgroundBorderless(),
+          }}>
+          {props.backButton ? <ArrowLeft /> : false}
+        </ButtonNative>
+
+        <Text style={styles.title}>Pixter Books</Text>
+        <ButtonNative
+          propsView={{
+            style: styles.buttonSize,
           }}
           propsButtons={{
             onPress: () => {
@@ -58,25 +50,51 @@ export default function Header(props: {
           {props.searchButton ? <Search /> : false}
         </ButtonNative>
       </View>
-      {search ? (
-        <TextInput
-          placeholder="Digite o nome do livro"
-          style={{
-            margin: metrics.margin,
-            marginTop: 0,
-            textAlign: 'center',
-            borderBottomWidth: StyleSheet.hairlineWidth,
-            borderBottomColor: 'rgba(0,0,0,0.4)',
-          }}
-          onChangeText={(txt) => {
-            if (props.onChangeText) {
-              props.onChangeText(txt);
-            }
-          }}
-        />
-      ) : (
-        false
+      {search && (
+        <View style={styles.viewInputText}>
+          <TextInput
+            placeholder="Digite o nome do livro"
+            style={styles.inputText}
+            onChangeText={(txt) => {
+              if (props.onChangeText) {
+                props.onChangeText(txt);
+              }
+            }}
+          />
+        </View>
       )}
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  rootView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: metrics.padding,
+    backgroundColor: colors.primary,
+  },
+  title: {
+    textAlign: 'center',
+    borderBottomColor: 'rgba(0,0,0,0.1)',
+    borderBottomWidth: 2,
+    paddingBottom: 8,
+    fontSize: 26,
+  },
+  viewInputText: {
+    margin: metrics.margin,
+    padding: 8,
+    marginTop: 0,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: 'rgba(0,0,0,0.4)',
+  },
+  inputText: {
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  buttonSize: {
+    height: 40,
+    width: 40,
+  },
+});
