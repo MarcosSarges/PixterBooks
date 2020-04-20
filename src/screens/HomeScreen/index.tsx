@@ -16,6 +16,7 @@ import {
 } from '@store/actions';
 import {bindActionCreators} from 'redux';
 import HelperGetBookImg from '@lib/HelperGetBookImg';
+import Header from '@components/Header';
 
 type HomeScreenProps = {
   refresh: boolean;
@@ -66,6 +67,7 @@ function HomeScreen({
 
   return (
     <View style={styles.rootView}>
+      <Header searchButton backButton />
       <FlatList
         showsVerticalScrollIndicator={false}
         ItemSeparatorComponent={() => <View style={{height: metrics.margin}} />}
