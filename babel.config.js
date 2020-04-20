@@ -9,6 +9,7 @@ const MODULE_RESOLVER = [
       '@router': './src/router',
       '@services': './src/services',
       '@lib': './src/lib',
+      '@store': './src/store',
       '@ts': './src/ts',
     },
   },

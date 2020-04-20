@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import Defines from '@services/Defines';
+import Defines from '@lib/Defines';
 import {BOOKS} from '@ts/types';
 
 const API = Axios.create({
