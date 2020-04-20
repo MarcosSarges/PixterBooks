@@ -7,7 +7,9 @@ const API = Axios.create({
 });
 
 export const getBooks = async (query: string) => {
-  return await API.get<BOOKS>(`${Defines.API.BOOKS}?q=${query}`);
+  return await API.get<BOOKS>(`${Defines.API.BOOKS}?q=${query}`).then(
+    (res) => res.data,
+  );
 };
 
 export default API;

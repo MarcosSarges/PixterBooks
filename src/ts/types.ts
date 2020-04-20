@@ -1,4 +1,8 @@
-export type BOOKS = BOOK[];
+export interface BOOKS {
+  kind: string;
+  totalItems: number;
+  items: BOOK[];
+}
 
 export interface BOOK {
   kind: string;
