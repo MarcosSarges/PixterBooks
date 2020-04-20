@@ -1,9 +1,8 @@
+/* eslint-disable no-shadow */
 import React from 'react';
 import {View, FlatList, RefreshControl, StyleSheet} from 'react-native';
 import BookImage from '@components/BookImage';
 import {BOOK} from '@ts/types';
-//@ts-ignore
-import BookNotFound from '@assets/img/missingbook.png';
 import colors from '@assets/styles/colors';
 import metrics from '@assets/styles/metrics';
 import ButtonNative from '@components/ButtonNative/index.android';
@@ -13,15 +12,18 @@ import {
   asyncGetBookAction,
   asyncGetBookActionNextPage,
   asyncGetBooksRefresh,
+  selectBook,
 } from '@store/actions';
-
 import {bindActionCreators} from 'redux';
+import HelperGetBookImg from '@lib/HelperGetBookImg';
+
 type HomeScreenProps = {
   refresh: boolean;
   books: BOOK[];
   asyncGetBooks(): void;
   asyncGetBookNextPage(): void;
   asyncGetBooksRefresh(): void;
+  selectBook(book: BOOK): void;
 };
 
 function HomeScreen({
@@ -30,6 +32,7 @@ function HomeScreen({
   asyncGetBooks,
   asyncGetBookNextPage,
   asyncGetBooksRefresh,
+  selectBook,
 }: HomeScreenProps) {
   const {navigate} = useNavigation();
   const [init, setInit] = React.useState(true);
@@ -38,16 +41,11 @@ function HomeScreen({
       <ButtonNative
         propsButtons={{
           onPress: () => {
+            selectBook(item);
             navigate('Details');
           },
         }}>
-        <BookImage
-          uri={
-            item.volumeInfo.imageLinks
-              ? Object.values(item.volumeInfo.imageLinks)[0]
-              : BookNotFound
-          }
-        />
+        <BookImage uri={HelperGetBookImg(item.volumeInfo)} />
       </ButtonNative>
     );
   };
@@ -72,6 +70,7 @@ function HomeScreen({
         showsVerticalScrollIndicator={false}
         ItemSeparatorComponent={() => <View style={{height: metrics.margin}} />}
         contentContainerStyle={{marginHorizontal: metrics.margin}}
+        style={styles.margin}
         refreshControl={
           <RefreshControl
             onRefresh={handleRefresh}
@@ -100,6 +99,7 @@ const mapDispatchToProps = (dispatch: any) =>
       asyncGetBooks: asyncGetBookAction,
       asyncGetBookNextPage: asyncGetBookActionNextPage,
       asyncGetBooksRefresh: asyncGetBooksRefresh,
+      selectBook: selectBook,
     },
     dispatch,
   );
@@ -108,4 +108,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
 
 const styles = StyleSheet.create({
   rootView: {flex: 1},
+  margin: {marginBottom: 20},
 });

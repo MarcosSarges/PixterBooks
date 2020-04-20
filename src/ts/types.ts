@@ -2,6 +2,7 @@ export interface BOOKS {
   kind: string;
   totalItems: number;
   items: BOOK[];
+  book: BOOK | null;
 }
 
 export interface BOOK {
@@ -33,14 +34,38 @@ export interface Epub {
 
 export interface SaleInfo {
   country: string;
-  saleability: string;
+  saleability: 'NOT_FOR_SALE' | 'FOR_SALE';
   isEbook: boolean;
+  listPrice: {
+    amount: 98.9;
+    currencyCode: string;
+  };
+  retailPrice: {
+    amount: 98.9;
+    currencyCode: string;
+  };
+  buyLink: string;
+  offers: [
+    {
+      finskyOfferType: number;
+      listPrice: {
+        amountInMicros: number;
+        currencyCode: string;
+      };
+      retailPrice: {
+        amountInMicros: number;
+        currencyCode: string;
+      };
+      giftable: true;
+    },
+  ];
 }
 
 export interface VolumeInfo {
   title: string;
   subtitle: string;
   authors: string[];
+  description: string;
   publisher: string;
   publishedDate: string;
   industryIdentifiers: IndustryIdentifier[];

@@ -7,7 +7,6 @@ const MODULE_RESOLVER = [
       '@components': './src/components',
       '@screens': './src/screens',
       '@router': './src/router',
-      '@services': './src/services',
       '@lib': './src/lib',
       '@store': './src/store',
       '@ts': './src/ts',

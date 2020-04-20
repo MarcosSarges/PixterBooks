@@ -1,16 +1,18 @@
 import {combineReducers} from 'redux';
-import constants, {ConstantsType} from './constants';
+import constants from './constants';
 import {BOOKS} from '@ts/types';
 
 type ActionType<T> = {
-  type: ConstantsType;
+  type: constants;
   payload: T;
 };
-//---------------- BOOK ----------------
+
+//---------------- BOOK`s ----------------
 const INITIAL_STATE_BOOKS: BOOKS = {
   kind: '',
   totalItems: 0,
   items: [],
+  book: null,
 };
 
 export const bookReducer = (
@@ -27,13 +29,16 @@ export const bookReducer = (
         ...action.payload,
         items: state.items.concat(action.payload.items),
       };
+    case constants.SELECT_BOOK:
+      return {
+        ...state,
+        book: action.payload,
+      };
     default:
       return state;
   }
 };
-//--------------------------------------
 
-//######################################
 //---------------- LOAD ----------------
 type TYPE_STATE_LOADERS = {
   home_screen_refresh: boolean;

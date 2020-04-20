@@ -16,7 +16,6 @@
       "@components/*": ["./src/components/*"],
       "@screens/*": ["./src/screens/*"],
       "@router/*": ["./src/router/*"],
-      "@services/*": ["src/lib/*"],
       "@lib/*": ["./src/lib/*"],
       "@store/*": ["./src/store/*"],
       "@ts/*": ["./src/ts/*"]

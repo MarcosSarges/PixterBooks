@@ -1,4 +1,5 @@
 import constants from './constants';
+import {BOOK} from '@ts/types';
 
 export function asyncGetBookAction() {
   return {
@@ -17,6 +18,20 @@ export function asyncGetBooksRefresh() {
     type: constants.ASYNC_GET_BOOK_ACTION_REFRESH,
   };
 }
+
+export function selectBook(book: BOOK) {
+  return {
+    type: constants.SELECT_BOOK,
+    payload: book,
+  };
+}
+
+// export function asyncSearchBook(query: string) {
+//   return {
+//     type: constants.ASYNC_SEARCH_BOOK_ACTION,
+//     payload: query,
+//   };
+// }
 
 export function toggleRefresh() {
   return {
