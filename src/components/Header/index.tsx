@@ -12,6 +12,7 @@ import Search from '@assets/svg/Search';
 import {useNavigation} from '@react-navigation/native';
 import ArrowLeft from '@assets/svg/ArrowLeft';
 import colors from '@assets/styles/colors';
+import Close from '@assets/svg/Close';
 
 // import { Container } from './styles';
 
@@ -47,7 +48,7 @@ export default function Header(props: {
             },
             background: TouchableNativeFeedback.SelectableBackgroundBorderless(),
           }}>
-          {props.searchButton ? <Search /> : false}
+          {props.searchButton ? search ? <Close /> : <Search /> : false}
         </ButtonNative>
       </View>
       {search && (
