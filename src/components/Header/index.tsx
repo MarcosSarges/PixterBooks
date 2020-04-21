@@ -44,7 +44,10 @@ export default function Header(props: {
           }}
           propsButtons={{
             onPress: () => {
-              setSearch(!search);
+              if (props.onChangeText) {
+                props.onChangeText('');
+                setSearch(!search);
+              }
             },
             background: TouchableNativeFeedback.SelectableBackgroundBorderless(),
           }}>
