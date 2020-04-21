@@ -19,6 +19,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* rngeolocationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* rngeolocationTests.m */; };
 		848607631421258888011BA2 /* libPods-rngeolocation-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B66A5A2F7D07BBC5B51CAD85 /* libPods-rngeolocation-tvOS.a */; };
+		C1F3FD66244F1B5800815F83 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F3FD65244F1B5800815F83 /* File.swift */; };
 		C82D890D0A422AFC2B8C6648 /* libPods-rngeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C830CD015A72883761A59E2F /* libPods-rngeolocation.a */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,8 @@
 		9F5B9B107675783399070EB0 /* libPods-rngeolocation-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rngeolocation-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B66A5A2F7D07BBC5B51CAD85 /* libPods-rngeolocation-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rngeolocation-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF2EAB2809BF2A5101266610 /* Pods-rngeolocation-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rngeolocation-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-rngeolocation-tvOSTests/Pods-rngeolocation-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C1F3FD64244F1B5700815F83 /* rngeolocation-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "rngeolocation-Bridging-Header.h"; sourceTree = "<group>"; };
+		C1F3FD65244F1B5800815F83 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		C830CD015A72883761A59E2F /* libPods-rngeolocation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rngeolocation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
@@ -132,6 +135,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				C1F3FD65244F1B5800815F83 /* File.swift */,
+				C1F3FD64244F1B5700815F83 /* rngeolocation-Bridging-Header.h */,
 			);
 			name = rngeolocation;
 			sourceTree = "<group>";
@@ -161,7 +166,6 @@
 				BF2EAB2809BF2A5101266610 /* Pods-rngeolocation-tvOSTests.debug.xcconfig */,
 				5262839F4DF7ABB3D0759B8A /* Pods-rngeolocation-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -292,7 +296,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1140;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -531,6 +535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				C1F3FD66244F1B5800815F83 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,6 +589,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2B250EF05EEEC691BCA65D84 /* Pods-rngeolocation-rngeolocationTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -607,6 +613,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9004919E93EC0827BC782F27 /* Pods-rngeolocation-rngeolocationTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = rngeolocationTests/Info.plist;
@@ -644,6 +651,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = rngeolocation;
+				SWIFT_OBJC_BRIDGING_HEADER = "rngeolocation-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -666,6 +674,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = rngeolocation;
+				SWIFT_OBJC_BRIDGING_HEADER = "rngeolocation-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

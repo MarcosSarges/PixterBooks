@@ -14,7 +14,7 @@ import Header from '@components/Header';
 export default function DetailsScreen() {
   const book = useSelector((state: {books: BOOKS}) => state.books.book);
   if (!book!.volumeInfo) {
-    return false;
+    return <View />;
   }
   const {volumeInfo, saleInfo} = book!;
 
