@@ -8,11 +8,14 @@ import metrics from '@assets/styles/metrics';
 import ButtonNative from '@components/ButtonNative/index.android';
 import {useNavigation} from '@react-navigation/native';
 import {connect} from 'react-redux';
+//@ts-ignore
+import debounce from 'lodash.debounce';
 import {
   asyncGetBookAction,
   asyncGetBookActionNextPage,
   asyncGetBooksRefresh,
   selectBook,
+  asyncSearchBook,
 } from '@store/actions';
 import {bindActionCreators} from 'redux';
 import HelperGetBookImg from '@lib/HelperGetBookImg';
@@ -25,6 +28,7 @@ type HomeScreenProps = {
   asyncGetBookNextPage(): void;
   asyncGetBooksRefresh(): void;
   selectBook(book: BOOK): void;
+  searchBook(query: string): void;
 };
 
 function HomeScreen({
@@ -34,6 +38,7 @@ function HomeScreen({
   asyncGetBookNextPage,
   asyncGetBooksRefresh,
   selectBook,
+  searchBook,
 }: HomeScreenProps) {
   const {navigate} = useNavigation();
   const [init, setInit] = React.useState(true);
@@ -65,9 +70,15 @@ function HomeScreen({
     }
   }, [asyncGetBooks, init]);
 
+  const handlerSearch = React.useCallback(
+    debounce((t: string) => searchBook(t), 1000),
+    [],
+  );
+  const onChangeText = (t: string) => (t ? handlerSearch(t) : asyncGetBooks());
+
   return (
     <View style={styles.rootView}>
-      <Header searchButton />
+      <Header searchButton onChangeText={onChangeText} />
       <FlatList
         showsVerticalScrollIndicator={false}
         ItemSeparatorComponent={() => <View style={{height: metrics.margin}} />}
@@ -102,6 +113,7 @@ const mapDispatchToProps = (dispatch: any) =>
       asyncGetBookNextPage: asyncGetBookActionNextPage,
       asyncGetBooksRefresh: asyncGetBooksRefresh,
       selectBook: selectBook,
+      searchBook: asyncSearchBook,
     },
     dispatch,
   );

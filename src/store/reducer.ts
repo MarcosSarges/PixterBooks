@@ -34,6 +34,10 @@ export const bookReducer = (
         ...state,
         book: action.payload,
       };
+    case constants.SEARCH_BOOK_ACTION:
+      return {
+        ...action.payload,
+      };
     default:
       return state;
   }

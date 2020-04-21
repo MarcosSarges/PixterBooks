@@ -19,19 +19,19 @@ export function asyncGetBooksRefresh() {
   };
 }
 
+export function asyncSearchBook(query: string) {
+  return {
+    type: constants.ASYNC_SEARCH_BOOK_ACTION,
+    payload: query,
+  };
+}
+
 export function selectBook(book: BOOK) {
   return {
     type: constants.SELECT_BOOK,
     payload: book,
   };
 }
-
-// export function asyncSearchBook(query: string) {
-//   return {
-//     type: constants.ASYNC_SEARCH_BOOK_ACTION,
-//     payload: query,
-//   };
-// }
 
 export function toggleRefresh() {
   return {
