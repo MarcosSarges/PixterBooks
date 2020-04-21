@@ -65,6 +65,7 @@
 		9F5B9B107675783399070EB0 /* libPods-rngeolocation-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rngeolocation-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B66A5A2F7D07BBC5B51CAD85 /* libPods-rngeolocation-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rngeolocation-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF2EAB2809BF2A5101266610 /* Pods-rngeolocation-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rngeolocation-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-rngeolocation-tvOSTests/Pods-rngeolocation-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C1D0D944244F6DA200DFE6AE /* rngeolocation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = rngeolocation.entitlements; path = rngeolocation/rngeolocation.entitlements; sourceTree = "<group>"; };
 		C1F3FD64244F1B5700815F83 /* rngeolocation-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "rngeolocation-Bridging-Header.h"; sourceTree = "<group>"; };
 		C1F3FD65244F1B5800815F83 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		C830CD015A72883761A59E2F /* libPods-rngeolocation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rngeolocation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +129,7 @@
 		13B07FAE1A68108700A75B9A /* rngeolocation */ = {
 			isa = PBXGroup;
 			children = (
+				C1D0D944244F6DA200DFE6AE /* rngeolocation.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -636,6 +638,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = rngeolocation/rngeolocation.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -664,6 +667,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = rngeolocation/rngeolocation.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = rngeolocation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
