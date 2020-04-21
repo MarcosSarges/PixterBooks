@@ -1,3 +1,7 @@
+## NOTA
+
+- Infelizmente a lib utilizada para executar tarefas em segundo plano não dá suporte corretamente ao IOS (Não conseguir conclui essa parte do desafio)
+
 ### Our React Native Pro Challenge
 
 You can start the RN-Geolocation [Challenge](https://bitbucket.org/pixtertecnologia/challenge-rn-geolocation) right now! Just clone the repo and build a List/Detail app with ReactNative and [Redux](https://redux.js.org/) and Geolocation.
