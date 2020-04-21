@@ -13,10 +13,16 @@ import Header from '@components/Header';
 
 export default function DetailsScreen() {
   const book = useSelector((state: {books: BOOKS}) => state.books.book);
+  if (!book!.volumeInfo) {
+    return false;
+  }
   const {volumeInfo, saleInfo} = book!;
 
   return (
-    <ScrollView style={styles.root}>
+    <ScrollView
+      bounces={false}
+      showsVerticalScrollIndicator={false}
+      style={styles.root}>
       <Header backButton />
       <View style={styles.header}>
         <View style={styles.containerImg}>
@@ -59,7 +65,12 @@ export default function DetailsScreen() {
         </View>
       </View>
       <View>
-        <Text style={styles.text}>{volumeInfo.description}</Text>
+        <Text
+          selectable
+          selectionColor="rgba(255, 221, 13,0.6)"
+          style={styles.text}>
+          {volumeInfo.description}
+        </Text>
       </View>
     </ScrollView>
   );
